@@ -1,11 +1,13 @@
 import axios from "axios";
 
 import type { GetServerSideProps, NextPage } from "next";
+import Head from "next/head";
 
 import Rap from "~/components/atoms/Rap";
 
 import Header from "~/components/organisms/Header";
-import MovieSlider from "~/components/organisms/MovieSlider";
+
+import MovieSection from "~/components/organisms/MovieSection";
 
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
@@ -15,16 +17,20 @@ const baseURL = process.env.REACT_APP_BASE_URL;
 const Home: NextPage = ({ data }: any) => {
   return (
     <WrapStyled>
+      <Head>
+        <title>MovieInfo</title>
+      </Head>
+
       <Header />
 
       <Rap>
-        <MovieSlider items={data} />
+        <MovieSection title={"인기영화"} link="/popoulr" data={data} />
       </Rap>
     </WrapStyled>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const language = "ko-KR";
 
   const { data } = await axios.get(

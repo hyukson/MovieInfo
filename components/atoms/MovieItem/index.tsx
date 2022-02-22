@@ -2,29 +2,32 @@ import Image from "next/image";
 
 import { MovieItemStyled } from "./styled";
 
+const imgURL = process.env.REACT_APP_IMG_URL;
+
 interface MovieItemTypes {
-  poster: string;
+  poster_path: string;
   title: string;
   vote_average: number;
   release_date: string;
-  genre_ids: Array<string>;
 }
 
 const MovieItem = ({
-  poster,
+  poster_path,
   title,
   vote_average,
   release_date,
-  genre_ids,
 }: MovieItemTypes) => {
   return (
     <MovieItemStyled>
       <div className="poster">
-        <Image src={poster} alt="poster" layout="fill" />
+        <Image
+          src={`${imgURL}/w500${poster_path}`}
+          alt="poster"
+          layout="fill"
+        />
       </div>
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <p>평점 : {vote_average} / 10</p>
-      <p>장르 : {genre_ids.join(", ")}</p>
       <p>개봉일자 : {release_date}</p>
     </MovieItemStyled>
   );

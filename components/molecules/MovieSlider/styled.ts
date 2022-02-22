@@ -10,6 +10,7 @@ export const MovieSliderStyled = styled.div`
       display: inline-block;
       width: 3rem;
       height: 3rem;
+      position: relative;
     }
   }
 `;

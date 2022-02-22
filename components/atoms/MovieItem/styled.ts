@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const MovieItemStyled = styled.div`
-  color: #f8f8f8;
+  color: ${(props) => props.theme.textColor};
 
   .poster {
     position: relative;
     width: 100%;
-    min-height: 500px;
     height: 100%;
+    max-height: 500px;
     margin-bottom: 2rem;
   }
 `;
