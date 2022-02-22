@@ -69,31 +69,28 @@ export const GlobalStyled = createGlobalStyle`
     font-family: "GMarketBold";
   }
 
-  // 1150px 반응형
-  @media only screen and (max-width: 1150px) {
+  // 반응형
+  @media only screen and (max-width: 1590px) {
+    html, body {
+      font-size: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
     html, body {
       font-size: 14px;
     }
   }
 
-  // 920px 반응형
-  @media only screen and (max-width: 920px) {
-    html, body {
-      font-size: 12px;
-    }
-  }
-
-  // 720px 반응형
   @media only screen and (max-width: 720px) {
     html, body {
-      font-size: 11px;
+      font-size: 13px;
     }
   }
 
-  // 600px 반응형
   @media only screen and (max-width: 600px) {
     html, body {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 `;

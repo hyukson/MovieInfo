@@ -9,5 +9,6 @@ export const defaultTheme = {
   lineColor: "#3541ff",
 
   // 어두운 버전의 배경
-  backDark: "#061626",
+  backDark: "#010511",
+  // backDark: "#090d11",
 };
