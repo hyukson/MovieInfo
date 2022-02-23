@@ -2,6 +2,7 @@ import axios from "axios";
 
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+import DetailVisual from "~/components/organisms/DetailVisual";
 
 import Header from "~/components/organisms/Header";
 
@@ -10,8 +11,8 @@ import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const Home: NextPage = ({ item, video, credits }: any) => {
-  console.log(item, video, credits);
+const Home: NextPage = ({ item, videos, credits }: any) => {
+  console.log(item, videos, credits);
 
   return (
     <WrapStyled>
@@ -20,6 +21,8 @@ const Home: NextPage = ({ item, video, credits }: any) => {
       </Head>
 
       <Header />
+
+      <DetailVisual item={item} />
     </WrapStyled>
   );
 };
@@ -46,7 +49,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   ).data;
 
   return {
-    props: { item, videos, credits },
+    props: { item, videos: videos.results, credits },
   };
 };
 

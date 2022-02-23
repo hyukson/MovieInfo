@@ -11,8 +11,7 @@ export const MovieSectionStyled = styled.section`
 
     h1 {
       font-size: 2rem;
-      color: #eee;
-    }
+      color: ${(props) => props.theme.titleColor};
 
     a {
       display: inline-block;

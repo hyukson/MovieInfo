@@ -20,7 +20,7 @@ export const MovieItemStyled = styled.a`
 
   h3 {
     font-size: 1.4rem;
-    color: #eee;
+    color: ${(props) => props.theme.titleColor};
   }
 
   p {
