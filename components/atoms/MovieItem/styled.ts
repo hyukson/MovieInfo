@@ -1,13 +1,30 @@
 import styled from "styled-components";
 
-export const MovieItemStyled = styled.div`
+export const MovieItemStyled = styled.a`
   color: ${(props) => props.theme.textColor};
+  transition: all 0.3s;
+  cursor: pointer;
+
+  :hover {
+    transform: scale(0.94);
+    color: ${(props) => props.theme.primary};
+  }
 
   .poster {
     position: relative;
     width: 100%;
     height: 100%;
-    max-height: 500px;
-    margin-bottom: 2rem;
+    min-height: 500px;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    color: #eee;
+  }
+
+  p {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
   }
 `;

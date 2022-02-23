@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const MovieSliderStyled = styled.div`
-  .swiper-button-next,
-  .swiper-button-prev {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000;
+  position: relative;
 
-    &:after {
-      display: inline-block;
-      width: 3rem;
-      height: 3rem;
-      position: relative;
+  .arrows {
+    > div {
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 5rem 3px rgba(0, 0, 0, 0.4);
+
+      &.left {
+        transform: translate(-65%, -100%);
+      }
+
+      &.right {
+        transform: translate(65%, -100%);
+      }
     }
   }
 `;

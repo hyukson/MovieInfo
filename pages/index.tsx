@@ -11,10 +11,10 @@ import MovieSection from "~/components/organisms/MovieSection";
 
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
-const apiKEY = process.env.REACT_APP_MOVIE_KEY;
-const baseURL = process.env.REACT_APP_BASE_URL;
+const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const Home: NextPage = ({ data }: any) => {
+const Home: NextPage = ({ popular }: any) => {
   return (
     <WrapStyled>
       <Head>
@@ -24,7 +24,7 @@ const Home: NextPage = ({ data }: any) => {
       <Header />
 
       <Rap>
-        <MovieSection title={"인기영화"} link="/popoulr" data={data} />
+        <MovieSection title={"인기영화"} link="/popular" data={popular} />
       </Rap>
     </WrapStyled>
   );
@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   );
 
   return {
-    props: { data: data.results },
+    props: { popular: data.results },
   };
 };
 

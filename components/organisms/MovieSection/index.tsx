@@ -14,7 +14,7 @@ const MovieSection = ({ title, link, data }: MovieSectionTypes) => {
   return (
     <MovieSectionStyled>
       <div className="Header">
-        <h2>{title}</h2>
+        <h1>{title}</h1>
 
         <Link href={link}>
           <a>더보기</a>
