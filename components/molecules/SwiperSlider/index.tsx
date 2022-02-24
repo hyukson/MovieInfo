@@ -1,27 +1,26 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 
-import MovieItem from "~/components/atoms/MovieItem";
 import SlideArrows from "~/components/atoms/SlideArrows";
 
-import { MovieSliderStyled } from "./styled";
+import { SwiperSliderStyled } from "./styled";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-interface MovieSliderTypes {
-  items: any;
+interface SwiperSliderTypes {
+  children: ReactNode;
   slidesPerView?: number;
   spaceBetween?: number;
 }
 
-const MovieSlider = ({
-  items,
+const SwiperSlider = ({
+  children,
   slidesPerView = 5,
   spaceBetween = 30,
-}: MovieSliderTypes) => {
+}: SwiperSliderTypes) => {
   const [handle, setHandle] = useState<any>(null);
 
   // 반응형
@@ -44,7 +43,7 @@ const MovieSlider = ({
   };
 
   return (
-    <MovieSliderStyled>
+    <SwiperSliderStyled>
       <Swiper
         breakpoints={breakPoints}
         modules={[Navigation]}
@@ -54,16 +53,12 @@ const MovieSlider = ({
           setHandle(e);
         }}
       >
-        {items.map((item: any, i: number) => (
-          <SwiperSlide key={i}>
-            <MovieItem {...item} key={i} />
-          </SwiperSlide>
-        ))}
+        {children}
       </Swiper>
 
       <SlideArrows handle={handle} />
-    </MovieSliderStyled>
+    </SwiperSliderStyled>
   );
 };
 
-export default MovieSlider;
+export default SwiperSlider;

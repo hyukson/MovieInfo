@@ -9,7 +9,11 @@ export const HeaderStyled = styled.header`
   background: ${(props) => props.theme.primary};
   z-index: 2;
 
-  display: flex;
+  > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
   a {
     display: inline-block;
@@ -25,12 +29,10 @@ export const HeaderStyled = styled.header`
       opacity: 0;
       background: #000;
       transition: all 0.4s;
-      bottom: -50%;
     }
 
     :hover::after {
       opacity: 1;
-      bottom: 0;
     }
   }
 `;

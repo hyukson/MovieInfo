@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const MovieSectionStyled = styled.section`
+  margin-top: 4rem;
+  user-select: none;
+
   .Header {
     display: flex;
     justify-content: space-between;
@@ -12,6 +15,7 @@ export const MovieSectionStyled = styled.section`
     h1 {
       font-size: 2rem;
       color: ${(props) => props.theme.titleColor};
+    }
 
     a {
       display: inline-block;
@@ -25,6 +29,4 @@ export const MovieSectionStyled = styled.section`
       cursor: pointer;
     }
   }
-
-  margin-top: 4rem;
 `;

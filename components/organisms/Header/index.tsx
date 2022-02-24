@@ -7,6 +7,12 @@ const Header = () => {
   return (
     <HeaderStyled>
       <Rap>
+        <Link href="/">
+          <a>
+            <h2>MovieInfo</h2>
+          </a>
+        </Link>
+
         <Link href="/popular">
           <a>인기영화</a>
         </Link>

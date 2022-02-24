@@ -6,7 +6,7 @@ interface RapTypes {
 }
 
 const Rap = ({ children }: RapTypes) => {
-  return <RapStyled>{children}</RapStyled>;
+  return <RapStyled className="wrap">{children}</RapStyled>;
 };
 
 export default Rap;

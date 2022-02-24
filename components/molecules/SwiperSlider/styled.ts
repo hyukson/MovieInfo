@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const MovieSliderStyled = styled.div`
+export const SwiperSliderStyled = styled.div`
   position: relative;
-  user-select: none;
 
   .arrows {
     > div {
