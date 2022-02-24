@@ -30,7 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyled />
 
-      {loading && <Loading />}
+      <Loading loading={loading} />
 
       <Component {...pageProps} />
     </ThemeProvider>

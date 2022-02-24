@@ -1,8 +1,12 @@
 import { LoadingStyled } from "./styled";
 
-const Loading = () => {
+interface LoadingTypes {
+  loading: boolean;
+}
+
+const Loading = ({ loading }: LoadingTypes) => {
   return (
-    <LoadingStyled>
+    <LoadingStyled className={loading ? "open" : ""}>
       <div className="cube">
         <div className="topCover"></div>
 

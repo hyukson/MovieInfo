@@ -6,15 +6,16 @@ import type { GetServerSideProps, NextPage } from "next";
 import DetailVisual from "~/components/organisms/DetailVisual";
 
 import Header from "~/components/organisms/Header";
-import MovieSection from "~/components/atoms/MovieSection";
-
-import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
 import TrailersSlider from "~/components/molecules/TrailersSlider";
 import CreditsSlider from "~/components/molecules/CreditsSlider";
 import MovieSlider from "~/components/molecules/MovieSlider";
-import { DetailStyled } from "~/components/pageStyled/DetailStyled";
+
+import MovieSection from "~/components/atoms/MovieSection";
 import Rap from "~/components/atoms/Rap";
+
+import { WrapStyled } from "~/components/pageStyled/WrapStyled";
+import { DetailStyled } from "~/components/pageStyled/DetailStyled";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -29,7 +30,7 @@ const Home: NextPage = ({
   return (
     <WrapStyled>
       <Head>
-        <title>MovieDetail</title>
+        <title>{item.original_title}</title>
       </Head>
 
       <Header />

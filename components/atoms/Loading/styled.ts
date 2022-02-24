@@ -9,7 +9,7 @@ const cubix = keyframes`
   }
 `;
 
-export const LoadingStyled = styled.div`
+export const LoadingStyled = styled.div<{ className?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,15 @@ export const LoadingStyled = styled.div`
 
   z-index: 22222222;
 
-  transition: 0.2s;
+  opacity: 0;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  transition: 0.4s;
 
   background: ${(props) => props.theme.backDark};
   color: ${(props) => props.theme.titleColor};
