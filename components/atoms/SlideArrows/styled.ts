@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const SlideArrowsStyled = styled.div`
   .arrows {
     > div {
-      width: 4.2rem;
-      height: 4.2rem;
+      width: 4rem;
+      height: 4rem;
 
       display: flex;
       justify-content: center;

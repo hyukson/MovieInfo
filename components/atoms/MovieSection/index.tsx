@@ -1,22 +1,15 @@
 import Link from "next/link";
-
-import MovieSlider from "~/components/molecules/MovieSlider";
+import { ReactNode } from "react";
 
 import { MovieSectionStyled } from "./styled";
 
 interface MovieSectionTypes {
   title: string;
   link?: string;
-  data: any;
-  slidesPerView?: number;
+  children?: ReactNode;
 }
 
-const MovieSection = ({
-  title,
-  link,
-  data,
-  slidesPerView,
-}: MovieSectionTypes) => {
+const MovieSection = ({ title, link, children }: MovieSectionTypes) => {
   return (
     <MovieSectionStyled>
       <div className="Header">
@@ -29,7 +22,7 @@ const MovieSection = ({
         )}
       </div>
 
-      <MovieSlider items={data} slidesPerView={slidesPerView || 5} />
+      {children}
     </MovieSectionStyled>
   );
 };

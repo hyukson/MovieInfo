@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import { MovieItemStyled } from "./styled";
 
+import noImageIcon from "~/assets/icons/noImage.png";
+
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 interface MovieItemTypes {
-  poster_path: string;
+  poster_path?: string;
   title: string;
   vote_average: number;
   release_date: string;
@@ -25,7 +27,7 @@ const MovieItem = ({
       <MovieItemStyled>
         <div className="poster">
           <Image
-            src={`${imgURL}/w500${poster_path}`}
+            src={poster_path ? `${imgURL}/w500${poster_path}` : noImageIcon}
             alt="poster"
             layout="fill"
           />

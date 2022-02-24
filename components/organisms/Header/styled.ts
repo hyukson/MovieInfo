@@ -7,7 +7,7 @@ export const HeaderStyled = styled.header`
   width: 100%;
   padding: 1rem 2rem;
   background: ${(props) => props.theme.primary};
-  z-index: 2;
+  z-index: 2222;
 
   > div {
     display: flex;
@@ -24,15 +24,14 @@ export const HeaderStyled = styled.header`
     ::after {
       content: "";
       display: block;
-      width: 100%;
+      width: 0%;
       height: 2px;
-      opacity: 0;
       background: #000;
       transition: all 0.4s;
     }
 
     :hover::after {
-      opacity: 1;
+      width: 100%;
     }
   }
 `;

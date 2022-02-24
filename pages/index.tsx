@@ -4,10 +4,11 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
 import Rap from "~/components/atoms/Rap";
+import MovieSlider from "~/components/molecules/MovieSlider";
 
 import Header from "~/components/organisms/Header";
 
-import MovieSection from "~/components/organisms/MovieSection";
+import MovieSection from "~/components/atoms/MovieSection";
 
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
@@ -24,7 +25,9 @@ const Home: NextPage = ({ popular }: any) => {
       <Header />
 
       <Rap>
-        <MovieSection title={"인기영화"} link="/popular" data={popular} />
+        <MovieSection title={"인기영화"} link="/popular">
+          <MovieSlider items={popular} />
+        </MovieSection>
       </Rap>
     </WrapStyled>
   );

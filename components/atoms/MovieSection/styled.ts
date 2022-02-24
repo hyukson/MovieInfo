@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MovieSectionStyled = styled.section`
-  margin-top: 4rem;
+  margin-top: 8rem;
   user-select: none;
 
   .Header {
@@ -13,8 +13,8 @@ export const MovieSectionStyled = styled.section`
     color: ${(props) => props.theme.textColor};
 
     h1 {
-      font-size: 2rem;
-      color: ${(props) => props.theme.titleColor};
+      font-size: 2.2rem;
+      color: ${(props) => props.theme.primary};
     }
 
     a {

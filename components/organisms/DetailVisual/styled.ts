@@ -2,11 +2,7 @@ import styled from "styled-components";
 
 export const DetailVisualStyled = styled.div`
   color: ${(props) => props.theme.textColor};
-
-  // 반응형
-  @media only screen and (max-width: 1220px) {
-    max-width: 1220px;
-  }
+  padding: 5rem 0;
 
   .backPoster {
     position: absolute;
@@ -47,20 +43,20 @@ export const DetailVisualStyled = styled.div`
   }
 
   .visualSection {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
 
     .poster {
       width: 350px;
       height: 500px;
       position: relative;
-      margin-right: 10rem;
+      margin-right: 12rem;
     }
 
     .direction {
-      width: 45rem;
+      width: 48rem;
 
       > div {
         margin-bottom: 2rem;
@@ -82,6 +78,7 @@ export const DetailVisualStyled = styled.div`
   }
 
   .overview {
+    margin-top: 6rem;
     border-left: 0.4rem solid ${(props) => props.theme.primary};
     padding-left: 2rem;
 
@@ -94,28 +91,6 @@ export const DetailVisualStyled = styled.div`
     p {
       font-size: 1.2rem;
       line-height: 1.4;
-    }
-  }
-
-  section {
-    margin-top: 8rem;
-
-    h1 {
-      font-size: 2rem;
-      color: ${(props) => props.theme.titleColor};
-      margin-bottom: 1rem;
-    }
-
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: 230px;
-      margin-bottom: 0.6rem;
-    }
-
-    h3 {
-      color: ${(props) => props.theme.titleColor};
     }
   }
 `;
