@@ -6,7 +6,7 @@ export const PhotoSliderStyled = styled.div`
 
   .photo {
     position: relative;
-    height: 500px;
+    height: 450px;
   }
 
   .arrows {

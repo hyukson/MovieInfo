@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 
-import { EffectCoverflow } from "swiper";
+import { EffectCards } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import SlideArrows from "~/components/atoms/SlideArrows";
@@ -24,7 +24,7 @@ interface PhotoSliderTypes {
 
 const PhotoSlider = ({
   items,
-  slidesPerView = 3,
+  slidesPerView = 4,
   spaceBetween = 30,
 }: PhotoSliderTypes) => {
   console.log(items);
@@ -54,15 +54,6 @@ const PhotoSlider = ({
     <PhotoSliderStyled>
       <Swiper
         breakpoints={breakPoints}
-        modules={[EffectCoverflow]}
-        effect="coverflow"
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         onSwiper={(e) => {
@@ -79,8 +70,7 @@ const PhotoSlider = ({
                     : noImageIcon
                 }
                 alt="poster"
-                width={500}
-                height={650}
+                layout="fill"
               />
             </div>
           </SwiperSlide>
