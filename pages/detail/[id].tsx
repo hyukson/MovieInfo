@@ -17,6 +17,7 @@ import Rap from "~/components/atoms/Rap";
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 import { DetailStyled } from "~/components/pageStyled/DetailStyled";
 import { useEffect } from "react";
+import PhotoSlider from "~/components/atoms/PhotoSlider";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -27,6 +28,7 @@ const Home: NextPage = ({
   credits,
   recommendItems,
   similarsItems,
+  photos,
 }: any) => {
   // 최근 본 영화
   useEffect(() => {
@@ -74,6 +76,10 @@ const Home: NextPage = ({
             ""
           )}
 
+          <MovieSection title="관련 이미지">
+            <PhotoSlider items={photos} />
+          </MovieSection>
+
           {recommendItems.length ? (
             <MovieSection title="추천영화">
               <MovieSlider slidesPerView={4} items={recommendItems} />
@@ -117,13 +123,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `${baseURL}/movie/${id}/credits?api_key=${apiKEY}&language=${language}`
   );
 
+  // 추천영화
   const recommendations = await getAxios(
     `${baseURL}/movie/${id}/recommendations?api_key=${apiKEY}&language=${language}`
   );
 
+  // 비슷한 영화
   const similars = await getAxios(
     `${baseURL}/movie/${id}/similar?api_key=${apiKEY}&language=${language}`
   );
+
+  const photos = (
+    await getAxios(`${baseURL}/movie/${id}/images?api_key=${apiKEY}`)
+  ).posters;
 
   return {
     props: {
@@ -132,6 +144,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       credits,
       recommendItems: recommendations.results,
       similarsItems: similars.results,
+      photos,
     },
   };
 };

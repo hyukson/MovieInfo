@@ -7,10 +7,14 @@ const useScrollPagination = (url: string, startItems: any) => {
   const [items, setItems] = useState(startItems);
   const [pageNum, setPageNum] = useState(1);
 
-  const clearPage = useCallback(() => {
+  const clearPage = useCallback((claerItems) => {
     setPageNum(1);
-    setItems(startItems);
+    setItems(claerItems);
 
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -19,14 +23,21 @@ const useScrollPagination = (url: string, startItems: any) => {
       setLoading(true);
 
       axios.get(`${url}&page=${pageNum}`).then((res) => {
+        const results = res.data.results;
+
+        console.log(results);
+
+        if (results.length != 20) {
+          console.log("asd");
+          setPageNum(-1);
+        }
+
         setTimeout(() => {
-          setItems([...(new Set([...items, ...res.data.results]) as any)]);
+          setItems([...(new Set([...items, ...results]) as any)]);
 
           setLoading(false);
         }, 300);
       });
-    } else {
-      window.scrollTo(0, 0);
     }
 
     window.addEventListener("scroll", infiniteScroll);
@@ -36,7 +47,11 @@ const useScrollPagination = (url: string, startItems: any) => {
     };
   }, [pageNum]);
 
-  const infiniteScroll = useCallback(() => {
+  const infiniteScroll = () => {
+    if (pageNum == -1) {
+      return;
+    }
+
     const maxScroll = document.documentElement.scrollHeight;
 
     const nowOffset = window.scrollY + window.innerHeight;
@@ -44,7 +59,7 @@ const useScrollPagination = (url: string, startItems: any) => {
     if (maxScroll <= nowOffset) {
       setPageNum((prePageNum) => prePageNum + 1);
     }
-  }, []);
+  };
 
   return {
     loading,

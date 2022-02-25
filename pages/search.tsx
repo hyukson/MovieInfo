@@ -1,18 +1,16 @@
 import axios from "axios";
-
-import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Loading from "~/components/atoms/Loading";
 import Rap from "~/components/atoms/Rap";
+import SearchForm from "~/components/atoms/SearchForm";
 
 import MovieList from "~/components/molecules/MovieList";
 
 import Header from "~/components/organisms/Header";
 
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
-import useMovieSearch from "~/hooks/useMovieSearch";
 
 import useScrollPagination from "~/hooks/useScrollPagination";
 
@@ -24,10 +22,30 @@ const region = "KR";
 
 const Search = () => {
   const [value, setValue] = useState("");
+  const [startItems, setItems] = useState([]);
 
-  const url = `${baseURL}/search/movie?api_key=${apiKEY}&language=${language}&query=${value}`;
+  const url = `${baseURL}/search/movie?api_key=${apiKEY}&language=${language}&region=${region}&query=${value}`;
 
-  const { loading, items, clearPage } = useScrollPagination(url, []);
+  const { loading, items, clearPage } = useScrollPagination(url, startItems);
+
+  useEffect(() => {
+    if (!value.trim()) {
+      setItems([]);
+      return;
+    }
+
+    axios.get(url).then((res) => {
+      setItems(res.data.results);
+    });
+  }, [value]);
+
+  useEffect(() => {
+    clearPage(startItems);
+  }, [startItems]);
+
+  const onChange = (e: any) => {
+    setValue(e.target.value);
+  };
 
   return (
     <WrapStyled>
@@ -41,6 +59,8 @@ const Search = () => {
       <Loading loading={loading} />
 
       <Rap>
+        <SearchForm onChange={onChange} />
+
         <MovieList items={items} />
       </Rap>
     </WrapStyled>

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const MovieSliderStyled = styled.div`
+export const PhotoSliderStyled = styled.div`
   position: relative;
   user-select: none;
 
-  .swiper-slide > a:hover {
-    transform: scale(0.97);
+  .photo {
+    position: relative;
+    height: 500px;
   }
 
   .arrows {

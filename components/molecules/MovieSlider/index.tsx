@@ -9,7 +9,6 @@ import SlideArrows from "~/components/atoms/SlideArrows";
 import { MovieSliderStyled } from "./styled";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
 interface MovieSliderTypes {
   items: any;
@@ -47,7 +46,6 @@ const MovieSlider = ({
     <MovieSliderStyled>
       <Swiper
         breakpoints={breakPoints}
-        modules={[Navigation]}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         onSwiper={(e) => {
