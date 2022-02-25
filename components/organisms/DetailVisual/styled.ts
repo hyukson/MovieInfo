@@ -4,12 +4,16 @@ export const DetailVisualStyled = styled.div`
   color: ${(props) => props.theme.textColor};
   padding: 5rem 0;
 
+  .back {
+    position: relative;
+  }
+
   .backPoster {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 600px;
+    height: 800px;
     z-index: 0;
     pointer-events: none;
 

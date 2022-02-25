@@ -16,6 +16,7 @@ import Rap from "~/components/atoms/Rap";
 
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 import { DetailStyled } from "~/components/pageStyled/DetailStyled";
+import { useEffect } from "react";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -27,6 +28,24 @@ const Home: NextPage = ({
   recommendItems,
   similarsItems,
 }: any) => {
+  // 최근 본 영화
+  useEffect(() => {
+    const ls = localStorage;
+
+    const preItems = JSON.parse(ls["watchList"] || "[]");
+
+    // 종복 제거
+    const findIndex = preItems.findIndex(
+      (v: { id: number }) => item.id == v.id
+    );
+
+    if (findIndex != -1) {
+      preItems.splice(findIndex, 1);
+    }
+
+    ls["watchList"] = JSON.stringify([{ id: item.id }, ...preItems]);
+  }, []);
+
   return (
     <WrapStyled>
       <Head>

@@ -18,10 +18,11 @@ const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const language = "ko-KR";
+const region = "KR";
 
-const url = `${baseURL}/movie/popular?api_key=${apiKEY}&language=${language}`;
+const url = `${baseURL}/movie/now_playing?api_key=${apiKEY}&region=${region}&language=${language}`;
 
-const Popular = ({ startItems }: any) => {
+const nowPlaying = ({ startItems }: any) => {
   const { loading, items } = useScrollPagination(url, startItems);
 
   return (
@@ -50,4 +51,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default Popular;
+export default nowPlaying;

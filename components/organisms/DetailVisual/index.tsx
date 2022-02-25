@@ -4,6 +4,8 @@ import Rap from "~/components/atoms/Rap";
 
 import { DetailVisualStyled } from "./styled";
 
+import noImage from "~icons/noImage.png";
+
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 interface DetailVisualTypes {
@@ -18,21 +20,27 @@ const DetailVisual = ({ item }: DetailVisualTypes) => {
   return (
     <DetailVisualStyled>
       <div className="backPoster">
-        <div className="image">
-          <Image
-            src={`${imgURL}/original${item.backdrop_path}`}
-            alt="poster"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
+        {item.backdrop_path ? (
+          <div className="image">
+            <Image
+              src={`${imgURL}/original${item.backdrop_path}`}
+              alt="poster"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
 
       <Rap>
         <div className="visualSection">
           <div className="poster">
             <Image
-              src={`${imgURL}/w500${item.poster_path}`}
+              src={
+                item.poster_path ? `${imgURL}/w500${item.poster_path}` : noImage
+              }
               alt="poster"
               layout="fill"
             />
@@ -60,7 +68,7 @@ const DetailVisual = ({ item }: DetailVisualTypes) => {
               <h3>장르</h3>
               <p>
                 {item.genres.map((v: any) => v.name).join(", ") ||
-                  "작성된 장르가 없습니다."}
+                  "해당 정보가 존재하지 않습니다."}
               </p>
             </div>
           </div>

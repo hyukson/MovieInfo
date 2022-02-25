@@ -16,16 +16,16 @@ const Header = () => {
         <Link href="/popular">
           <a>인기영화</a>
         </Link>
-        <Link href="">
-          <a>현재 상영영화</a>
+        <Link href="/nowPlaying">
+          <a>현재상영작</a>
         </Link>
-        <Link href="">
-          <a>개봉 예정영화</a>
+        <Link href="/upcoming">
+          <a>개봉예정작</a>
         </Link>
-        <Link href="">
+        <Link href="/watch">
           <a>최근본영화</a>
         </Link>
-        <Link href="">
+        <Link href="/search">
           <a>영화검색</a>
         </Link>
       </Rap>

@@ -1,14 +1,41 @@
 import styled from "styled-components";
 
 export const MovieListStyled = styled.div`
+  margin-top: 3rem;
   position: relative;
   user-select: none;
 
-  width: 100%;
-  height: 100%;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2rem;
 
   > a {
-    width: 400px;
+    display: inline-block;
+    margin-bottom: 4rem;
+
+    :hover {
+      transform: scale(1.08);
+    }
+  }
+
+  h2 {
+    color: ${(props) => props.theme.titleColor};
+  }
+
+  // 반응형
+  @media only screen and (max-width: 1650px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media only screen and (max-width: 1380px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 920px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 720px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
