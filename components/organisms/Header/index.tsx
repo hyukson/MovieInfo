@@ -25,6 +25,9 @@ const Header = () => {
         <Link href="/watch">
           <a>최근본영화</a>
         </Link>
+        <Link href="/topRated">
+          <a>명작추천</a>
+        </Link>
         <Link href="/search">
           <a>영화검색</a>
         </Link>

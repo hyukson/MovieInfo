@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
 export const DetailVisualStyled = styled.div`
+  position: relative;
   color: ${(props) => props.theme.textColor};
   padding: 5rem 0;
-
-  .back {
-    position: relative;
-  }
 
   .backPoster {
     position: absolute;
@@ -93,7 +90,7 @@ export const DetailVisualStyled = styled.div`
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.4;
     }
   }

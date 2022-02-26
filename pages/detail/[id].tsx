@@ -135,7 +135,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const photos = (
     await getAxios(`${baseURL}/movie/${id}/images?api_key=${apiKEY}`)
-  ).posters;
+  ).backdrops;
 
   return {
     props: {

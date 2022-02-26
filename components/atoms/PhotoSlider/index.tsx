@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { useState } from "react";
 
-import { EffectCards } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import SlideArrows from "~/components/atoms/SlideArrows";
@@ -24,7 +23,7 @@ interface PhotoSliderTypes {
 
 const PhotoSlider = ({
   items,
-  slidesPerView = 4,
+  slidesPerView = 3,
   spaceBetween = 30,
 }: PhotoSliderTypes) => {
   console.log(items);
@@ -70,7 +69,9 @@ const PhotoSlider = ({
                     : noImageIcon
                 }
                 alt="poster"
-                layout="fill"
+                objectFit="scale-down"
+                width={500}
+                height={300}
               />
             </div>
           </SwiperSlide>

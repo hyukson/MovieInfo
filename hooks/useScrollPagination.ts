@@ -6,10 +6,13 @@ const useScrollPagination = (url: string, startItems: any) => {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState(startItems);
   const [pageNum, setPageNum] = useState(1);
+  const [value, setValue] = useState("");
 
-  const clearPage = useCallback((claerItems) => {
+  const clearPage = useCallback((claerItems, value) => {
     setPageNum(1);
+
     setItems(claerItems);
+    setValue(value);
 
     window.scrollTo(0, 0);
   }, []);
@@ -25,10 +28,7 @@ const useScrollPagination = (url: string, startItems: any) => {
       axios.get(`${url}&page=${pageNum}`).then((res) => {
         const results = res.data.results;
 
-        console.log(results);
-
         if (results.length != 20) {
-          console.log("asd");
           setPageNum(-1);
         }
 
@@ -45,10 +45,10 @@ const useScrollPagination = (url: string, startItems: any) => {
     return () => {
       window.removeEventListener("scroll", infiniteScroll);
     };
-  }, [pageNum]);
+  }, [pageNum, value]);
 
   const infiniteScroll = () => {
-    if (pageNum == -1) {
+    if (pageNum === -1) {
       return;
     }
 

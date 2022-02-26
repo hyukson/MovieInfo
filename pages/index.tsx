@@ -51,6 +51,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
     `${baseURL}/movie/popular?api_key=${apiKEY}&language=${language}`
   );
 
+  const topRated = await getAxios(
+    `${baseURL}/movie/top_rated?api_key=${apiKEY}&region=${region}&language=${language}`
+  );
+
   const nowPlaying = await getAxios(
     `${baseURL}/movie/now_playing?api_key=${apiKEY}&region=${region}&language=${language}`
   );
@@ -58,6 +62,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const upcoming = await getAxios(
     `${baseURL}/movie/upcoming?api_key=${apiKEY}&region=${region}&language=${language}`
   );
+
+  const visualItems = [].sort((a, b) => Math.random() - Math.random());
 
   return {
     props: {

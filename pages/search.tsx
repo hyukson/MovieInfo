@@ -40,7 +40,7 @@ const Search = () => {
   }, [value]);
 
   useEffect(() => {
-    clearPage(startItems);
+    clearPage(startItems, value);
   }, [startItems]);
 
   const onChange = (e: any) => {
