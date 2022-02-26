@@ -83,7 +83,7 @@ export const TopRatedContentStyled = styled.div`
       }
 
       > div {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
 
         p {
           margin-top: 0.4rem;
@@ -99,12 +99,12 @@ export const TopRatedContentStyled = styled.div`
         }
       }
 
-      .moreBtn a {
+      .moreBtn > a {
         display: inline-block;
         padding: 1rem 2.5rem;
-        color: #000;
-        background: ${(props) => props.theme.primary};
         font-weight: bold;
+        background: ${(props) => props.theme.primary};
+        color: #000;
       }
     }
   }

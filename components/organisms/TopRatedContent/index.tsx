@@ -4,7 +4,6 @@ import Rap from "~/components/atoms/Rap";
 
 import { TopRatedContentStyled } from "./styled";
 
-import noImage from "~icons/noImage.png";
 import Link from "next/link";
 
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
