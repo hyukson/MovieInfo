@@ -31,7 +31,7 @@ const nowPlaying = ({ startItems }: any) => {
       <Loading loading={loading} />
 
       <Rap>
-        <MovieList items={items} />
+        <MovieList title="현재상영작" items={items} />
       </Rap>
     </>
   );

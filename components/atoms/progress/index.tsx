@@ -3,14 +3,19 @@ import { ProgressStyled } from "./styled";
 
 interface ProgressTypes {
   active?: number;
+  isStop: boolean;
 }
 
-const Progress = ({ active }: ProgressTypes) => {
+const Progress = ({ active, isStop }: ProgressTypes) => {
   const [rander, setRander] = useState("active");
 
   // 강제 렌더링
   useEffect(() => {
     setRander("none");
+
+    if (isStop) {
+      return;
+    }
 
     const timer = setTimeout(() => setRander("active"), 50);
 

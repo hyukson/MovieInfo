@@ -30,7 +30,7 @@ const Popular = ({ startItems }: any) => {
       <Loading loading={loading} />
 
       <Rap>
-        <MovieList items={items} />
+        <MovieList title="인기영화" items={items} />
       </Rap>
     </>
   );

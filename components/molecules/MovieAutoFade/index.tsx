@@ -32,8 +32,10 @@ const MovieAutoFade = ({
 }: MovieAutoFadeTypes) => {
   const [handle, setHandle] = useState<any>(null);
 
+  const isMax = active === items.length - 1;
+
   useEffect(() => {
-    if (active === items.length - 1) {
+    if (isMax) {
       return;
     }
 
@@ -105,7 +107,7 @@ const MovieAutoFade = ({
       </Swiper>
 
       {/* 진행바 */}
-      <Progress active={active} />
+      <Progress active={active} isStop={isMax} />
 
       <SlideArrows handle={handle} />
     </MovieAutoFadeStyled>

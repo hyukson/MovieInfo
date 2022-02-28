@@ -47,7 +47,7 @@ const Watch = () => {
       </Head>
 
       <Rap>
-        <MovieList items={items} />
+        <MovieList title="최근본영화" items={items} />
       </Rap>
     </>
   );

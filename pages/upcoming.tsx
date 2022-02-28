@@ -31,7 +31,7 @@ const Upcoming = ({ startItems }: any) => {
       <Loading loading={loading} />
 
       <Rap>
-        <MovieList items={items} />
+        <MovieList title="개봉예정작" items={items} />
       </Rap>
     </>
   );
