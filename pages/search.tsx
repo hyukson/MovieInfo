@@ -8,8 +8,6 @@ import SearchForm from "~/components/atoms/SearchForm";
 
 import MovieList from "~/components/molecules/MovieList";
 
-import Header from "~/components/organisms/Header";
-
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
 import useScrollPagination from "~/hooks/useScrollPagination";
@@ -48,12 +46,10 @@ const Search = () => {
   };
 
   return (
-    <WrapStyled>
+    <>
       <Head>
-        <title>MovieInfo</title>
+        <title>Search Page</title>
       </Head>
-
-      <Header />
 
       {/* 페이징 로딩 */}
       <Loading loading={loading} />
@@ -63,7 +59,7 @@ const Search = () => {
 
         <MovieList items={items} />
       </Rap>
-    </WrapStyled>
+    </>
   );
 };
 

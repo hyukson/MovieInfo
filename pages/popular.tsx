@@ -8,10 +8,6 @@ import Rap from "~/components/atoms/Rap";
 
 import MovieList from "~/components/molecules/MovieList";
 
-import Header from "~/components/organisms/Header";
-
-import { WrapStyled } from "~/components/pageStyled/WrapStyled";
-
 import useScrollPagination from "~/hooks/useScrollPagination";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
@@ -25,12 +21,10 @@ const Popular = ({ startItems }: any) => {
   const { loading, items } = useScrollPagination(url, startItems);
 
   return (
-    <WrapStyled>
+    <>
       <Head>
-        <title>MovieInfo</title>
+        <title>Popular Page</title>
       </Head>
-
-      <Header />
 
       {/* 페이징 로딩 */}
       <Loading loading={loading} />
@@ -38,7 +32,7 @@ const Popular = ({ startItems }: any) => {
       <Rap>
         <MovieList items={items} />
       </Rap>
-    </WrapStyled>
+    </>
   );
 };
 

@@ -91,7 +91,7 @@ export const TopRatedContentStyled = styled.div`
 
         h1 {
           color: ${(props) => props.theme.primary};
-          font-size: 4rem;
+          font-size: 3rem;
         }
 
         h3 {

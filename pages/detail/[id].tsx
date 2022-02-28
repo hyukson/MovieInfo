@@ -3,21 +3,19 @@ import Head from "next/head";
 
 import type { GetServerSideProps, NextPage } from "next";
 
-import DetailVisual from "~/components/organisms/DetailVisual";
+import { useEffect } from "react";
 
-import Header from "~/components/organisms/Header";
+import DetailVisual from "~/components/organisms/DetailVisual";
 
 import TrailersSlider from "~/components/molecules/TrailersSlider";
 import CreditsSlider from "~/components/molecules/CreditsSlider";
 import MovieSlider from "~/components/molecules/MovieSlider";
 
 import MovieSection from "~/components/atoms/MovieSection";
+import PhotoSlider from "~/components/atoms/PhotoSlider";
 import Rap from "~/components/atoms/Rap";
 
-import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 import { DetailStyled } from "~/components/pageStyled/DetailStyled";
-import { useEffect } from "react";
-import PhotoSlider from "~/components/atoms/PhotoSlider";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -49,12 +47,10 @@ const Home: NextPage = ({
   }, []);
 
   return (
-    <WrapStyled>
+    <>
       <Head>
         <title>{item.original_title}</title>
       </Head>
-
-      <Header />
 
       <DetailStyled>
         <DetailVisual item={item} />
@@ -97,7 +93,7 @@ const Home: NextPage = ({
           )}
         </Rap>
       </DetailStyled>
-    </WrapStyled>
+    </>
   );
 };
 

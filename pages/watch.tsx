@@ -1,14 +1,11 @@
 import axios from "axios";
 
-import type { GetServerSideProps } from "next";
 import Head from "next/head";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Rap from "~/components/atoms/Rap";
 
 import MovieList from "~/components/molecules/MovieList";
-
-import Header from "~/components/organisms/Header";
 
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
@@ -44,17 +41,15 @@ const Watch = () => {
   }, []);
 
   return (
-    <WrapStyled>
+    <>
       <Head>
-        <title>MovieInfo</title>
+        <title>Watch Page</title>
       </Head>
-
-      <Header />
 
       <Rap>
         <MovieList items={items} />
       </Rap>
-    </WrapStyled>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 const useScrollPagination = (url: string, startItems: any) => {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState(startItems);
-  const [pageNum, setPageNum] = useState(1);
+  const [pageNum, setPageNum] = useState(startItems.length == 20 ? 1 : -1);
   const [value, setValue] = useState("");
 
   const clearPage = useCallback((claerItems, value) => {

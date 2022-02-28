@@ -4,25 +4,28 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
 import Rap from "~/components/atoms/Rap";
-import MovieSlider from "~/components/molecules/MovieSlider";
-
-import Header from "~/components/organisms/Header";
-
 import MovieSection from "~/components/atoms/MovieSection";
 
-import { WrapStyled } from "~/components/pageStyled/WrapStyled";
+import MovieSlider from "~/components/molecules/MovieSlider";
+
+import TopRatedContent from "~/components/organisms/TopRatedContent";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
-const Home: NextPage = ({ popular, nowPlaying, upcoming }: any) => {
+const Home: NextPage = ({
+  popular,
+  nowPlaying,
+  upcoming,
+  visualItems,
+}: any) => {
   return (
-    <WrapStyled>
+    <>
       <Head>
         <title>MovieInfo</title>
       </Head>
 
-      <Header />
+      <TopRatedContent items={visualItems} />
 
       <Rap>
         <MovieSection title={"인기영화"} link="/popular">
@@ -37,7 +40,7 @@ const Home: NextPage = ({ popular, nowPlaying, upcoming }: any) => {
           <MovieSlider items={upcoming} />
         </MovieSection>
       </Rap>
-    </WrapStyled>
+    </>
   );
 };
 
@@ -45,7 +48,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const language = "ko-KR";
   const region = "KR";
 
-  const getAxios = async (url: string) => (await axios.get(url)).data;
+  const getAxios = async (url: string) =>
+    (await axios.get(url)).data.results || [];
 
   const popular = await getAxios(
     `${baseURL}/movie/popular?api_key=${apiKEY}&language=${language}`
@@ -63,13 +67,16 @@ export const getServerSideProps: GetServerSideProps = async () => {
     `${baseURL}/movie/upcoming?api_key=${apiKEY}&region=${region}&language=${language}`
   );
 
-  const visualItems = [].sort((a, b) => Math.random() - Math.random());
+  const visualItems = [...topRated, ...popular, ...nowPlaying, ...upcoming]
+    .sort((a: any, b: any) => Math.random() - Math.random())
+    .splice(0, 30);
 
   return {
     props: {
-      popular: popular.results,
-      nowPlaying: nowPlaying.results,
-      upcoming: upcoming.results,
+      popular: popular,
+      nowPlaying: nowPlaying,
+      upcoming: upcoming,
+      visualItems,
     },
   };
 };

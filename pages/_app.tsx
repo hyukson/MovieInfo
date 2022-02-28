@@ -11,9 +11,13 @@ import { GlobalStyled } from "~/styles/styled";
 import { ThemeProvider } from "styled-components";
 
 import Loading from "~/components/atoms/Loading";
+import Footer from "~/components/organisms/Footer";
+import Header from "~/components/organisms/Header";
+import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false);
+  const isExcludePage = ["/topRated"].includes(router.route);
 
   // 로딩바
   useEffect(() => {
@@ -32,7 +36,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
       <Loading loading={loading} />
 
-      <Component {...pageProps} />
+      <WrapStyled>
+        <Header />
+
+        <Component {...pageProps} />
+
+        {!isExcludePage && <Footer />}
+      </WrapStyled>
     </ThemeProvider>
   );
 };

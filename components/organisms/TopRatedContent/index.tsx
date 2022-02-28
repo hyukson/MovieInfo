@@ -2,18 +2,23 @@ import Image from "next/image";
 
 import Rap from "~/components/atoms/Rap";
 
+import MovieAutoFade from "~/components/molecules/MovieAutoFade";
+
 import { TopRatedContentStyled } from "./styled";
 
 import Link from "next/link";
+import { useState } from "react";
 
 const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 interface TopRatedContentTypes {
-  item: any;
+  items: any;
 }
 
-const TopRatedContent = ({ item }: TopRatedContentTypes) => {
-  console.log(item);
+const TopRatedContent = ({ items }: TopRatedContentTypes) => {
+  const [active, setActive] = useState(0);
+
+  const item = items[active];
 
   return (
     <TopRatedContentStyled>
@@ -66,7 +71,7 @@ const TopRatedContent = ({ item }: TopRatedContentTypes) => {
             </div>
           </div>
 
-          <div className="slider"></div>
+          <MovieAutoFade items={items} active={active} setActive={setActive} />
         </div>
       </Rap>
     </TopRatedContentStyled>

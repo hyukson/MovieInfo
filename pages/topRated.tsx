@@ -3,10 +3,7 @@ import axios from "axios";
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
 
-import Header from "~/components/organisms/Header";
 import TopRatedContent from "~/components/organisms/TopRatedContent";
-
-import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
 const apiKEY = process.env.NEXT_PUBLIC_MOVIE_KEY;
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -18,24 +15,28 @@ const url = `${baseURL}/movie/top_rated?api_key=${apiKEY}&region=${region}&langu
 
 const topRated = ({ items }: any) => {
   return (
-    <WrapStyled>
+    <>
       <Head>
-        <title>MovieInfo</title>
+        <title>topRated Page</title>
       </Head>
 
-      <Header />
-
-      <TopRatedContent item={items[0]} />
-    </WrapStyled>
+      <TopRatedContent items={items} />
+    </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await axios.get(url);
+  const data = [];
 
-  const results = data.results.sort(
-    (a: any, b: any) => Math.random() - Math.random()
-  );
+  for (let i = 0; i < 8; i++) {
+    const { results } = (await axios.get(url + `&page=${i + 1}`)).data;
+
+    data.push(...results);
+  }
+
+  const results = data
+    .sort((a: any, b: any) => Math.random() - Math.random())
+    .splice(0, 30);
 
   return {
     props: {
