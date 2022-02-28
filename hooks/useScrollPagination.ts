@@ -8,15 +8,6 @@ const useScrollPagination = (url: string, startItems: any) => {
   const [pageNum, setPageNum] = useState(startItems.length == 20 ? 1 : -1);
   const [value, setValue] = useState("");
 
-  const clearPage = useCallback((claerItems, value) => {
-    setPageNum(1);
-
-    setItems(claerItems);
-    setValue(value);
-
-    window.scrollTo(0, 0);
-  }, []);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -60,6 +51,15 @@ const useScrollPagination = (url: string, startItems: any) => {
       setPageNum((prePageNum) => prePageNum + 1);
     }
   };
+
+  const clearPage = useCallback((claerItems, value) => {
+    setPageNum(claerItems.length == 20 ? 1 : -1);
+
+    setItems(claerItems);
+    setValue(value);
+
+    window.scrollTo(0, 0);
+  }, []);
 
   return {
     loading,

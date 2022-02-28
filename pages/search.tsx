@@ -55,7 +55,7 @@ const Search = () => {
       <Loading loading={loading} />
 
       <Rap>
-        <SearchForm onChange={onChange} />
+        <SearchForm onChange={onChange} value={value} />
 
         <MovieList items={items} />
       </Rap>

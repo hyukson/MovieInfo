@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import SlideArrows from "~/components/atoms/SlideArrows";
+import Progress from "~/components/atoms/progress";
 
 import noImageIcon from "~/assets/icons/noImage.png";
 
@@ -38,7 +39,7 @@ const MovieAutoFade = ({
 
     const timer = setTimeout(() => {
       changeActive(active + 1);
-    }, 4000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [active, handle]);
@@ -102,6 +103,9 @@ const MovieAutoFade = ({
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* 진행바 */}
+      <Progress active={active} />
 
       <SlideArrows handle={handle} />
     </MovieAutoFadeStyled>

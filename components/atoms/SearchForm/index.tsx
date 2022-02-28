@@ -2,9 +2,10 @@ import { SearchFormStyled } from "./styled";
 
 interface SearchFormTypes {
   onChange: any;
+  value: string;
 }
 
-const SearchForm = ({ onChange }: SearchFormTypes) => {
+const SearchForm = ({ onChange, value }: SearchFormTypes) => {
   return (
     <SearchFormStyled>
       <h1>Movie Title Search</h1>
@@ -12,6 +13,7 @@ const SearchForm = ({ onChange }: SearchFormTypes) => {
       <input
         type="text"
         name="search"
+        value={value}
         id="search"
         onInput={onChange}
         autoFocus
