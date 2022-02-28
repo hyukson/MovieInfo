@@ -12,6 +12,7 @@ export const TopRatedContentStyled = styled.div`
 
   @media only screen and (max-width: 900px) {
     height: 100%;
+    margin-bottom: 1rem;
   }
 
   .backPoster {
