@@ -5,6 +5,10 @@ export const MovieAutoFadeStyled = styled.div`
   width: 50rem;
   user-select: none;
 
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+  }
+
   .swiper-slide {
     transition: transform 0.6s;
     transform: scale(0.85);

@@ -58,20 +58,14 @@ const MovieAutoFade = ({
 
   // 반응형
   const breakPoints = {
-    1520: {
+    900: {
       slidesPerView: slidesPerView,
     },
-    1220: {
-      slidesPerView: slidesPerView - 1,
+    680: {
+      slidesPerView: 3,
     },
-    920: {
-      slidesPerView: slidesPerView - 2,
-    },
-    720: {
+    480: {
       slidesPerView: 2,
-    },
-    500: {
-      slidesPerView: 1,
     },
   };
 

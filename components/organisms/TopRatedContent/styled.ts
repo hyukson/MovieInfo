@@ -7,7 +7,12 @@ export const TopRatedContentStyled = styled.div`
   height: 90vh;
 
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
+
+  @media only screen and (max-width: 900px) {
+    height: 100%;
+  }
 
   .backPoster {
     position: absolute;
@@ -53,6 +58,7 @@ export const TopRatedContentStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    flex-wrap: wrap;
 
     .direction {
       width: 40rem;
