@@ -17,10 +17,10 @@ export const HeaderStyled = styled.header`
 
   a {
     display: inline-block;
+    position: relative;
     padding: 0.6rem 1.3rem;
     font-size: 1.1rem;
     font-weight: bold;
-    position: relative;
 
     ::after {
       content: "";
