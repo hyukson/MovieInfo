@@ -1,7 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
+
 import Rap from "~/components/atoms/Rap";
 
 import { HeaderStyled } from "./styled";
+
+import Logo from "~images/logo.png";
 
 const Header = () => {
   return (
@@ -9,7 +13,7 @@ const Header = () => {
       <Rap>
         <Link href="/">
           <a>
-            <h2>MovieInfo</h2>
+            <Image {...Logo} alt="logo" />
           </a>
         </Link>
 

@@ -20,6 +20,7 @@ export const HeaderStyled = styled.header`
     padding: 0.6rem 1.3rem;
     font-size: 1.1rem;
     font-weight: bold;
+    position: relative;
 
     ::after {
       content: "";
