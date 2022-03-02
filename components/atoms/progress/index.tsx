@@ -20,7 +20,7 @@ const Progress = ({ active, isStop }: ProgressTypes) => {
     const timer = setTimeout(() => setRander("active"), 50);
 
     return () => clearTimeout(timer);
-  }, [active]);
+  }, [active, isStop]);
 
   return (
     <ProgressStyled>

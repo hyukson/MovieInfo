@@ -34,6 +34,16 @@ const MovieAutoFade = ({
 
   const isMax = active === items.length - 1;
 
+  const changeActive = (i: number) => {
+    if (items.length - slidesPerView <= active) {
+      setActive(i);
+    }
+
+    if (handle) {
+      handle.slideTo(i);
+    }
+  };
+
   useEffect(() => {
     if (isMax) {
       return;
@@ -44,17 +54,7 @@ const MovieAutoFade = ({
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, [active, handle]);
-
-  const changeActive = (i: number) => {
-    if (items.length - slidesPerView <= active) {
-      setActive(i);
-    }
-
-    if (handle) {
-      handle.slideTo(i);
-    }
-  };
+  }, [active, handle, isMax]);
 
   // 반응형
   const breakPoints = {

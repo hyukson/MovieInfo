@@ -23,7 +23,7 @@ const MovieItem = ({
   release_date,
 }: MovieItemTypes) => {
   return (
-    <Link href={`/detail/${id}`}>
+    <Link href={`/detail/${id}`} passHref>
       <MovieItemStyled>
         <div className="poster">
           <Image

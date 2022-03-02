@@ -18,13 +18,13 @@ const region = "KR";
 
 const url = `${baseURL}/movie/now_playing?api_key=${apiKEY}&region=${region}&language=${language}`;
 
-const nowPlaying = ({ startItems }: any) => {
+const NowPlaying = ({ startItems }: any) => {
   const { loading, items } = useScrollPagination(url, startItems);
 
   return (
     <>
       <Head>
-        <title>nowPlaying Page</title>
+        <title>NowPlaying Page</title>
       </Head>
 
       {/* 페이징 로딩 */}
@@ -45,4 +45,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default nowPlaying;
+export default NowPlaying;

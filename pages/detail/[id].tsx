@@ -36,15 +36,15 @@ const Home: NextPage = ({
 
     // 종복 제거
     const findIndex = preItems.findIndex(
-      (v: { id: number }) => item.id == v.id
+      (v: { id: number }) => item?.id == v?.id
     );
 
     if (findIndex != -1) {
       preItems.splice(findIndex, 1);
     }
 
-    ls["watchList"] = JSON.stringify([{ id: item.id }, ...preItems]);
-  }, []);
+    ls["watchList"] = JSON.stringify([{ id: item?.id }, ...preItems]);
+  }, [item]);
 
   return (
     <>
