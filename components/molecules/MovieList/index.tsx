@@ -4,15 +4,19 @@ import { MovieListStyled } from "./styled";
 
 interface MovieListTypes {
   items: any;
-  title: string;
+  title?: string;
 }
 
 const MovieList = ({ items, title }: MovieListTypes) => {
   return (
     <MovieListStyled>
-      <div className="title">
-        <h2>{title}</h2>
-      </div>
+      {title ? (
+        <div className="title">
+          <h2>{title}</h2>
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="list">
         {items.length ? (
