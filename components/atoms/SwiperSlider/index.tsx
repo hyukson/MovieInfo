@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import { Navigation } from "swiper";
+import { Lazy } from "swiper";
 import { Swiper } from "swiper/react";
 
 import SlideArrows from "~/components/atoms/SlideArrows";
@@ -8,7 +8,6 @@ import SlideArrows from "~/components/atoms/SlideArrows";
 import { SwiperSliderStyled } from "./styled";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
 interface SwiperSliderTypes {
   children: ReactNode;
@@ -46,7 +45,8 @@ const SwiperSlider = ({
     <SwiperSliderStyled>
       <Swiper
         breakpoints={breakPoints}
-        modules={[Navigation]}
+        lazy={true}
+        modules={[Lazy]}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         onSwiper={(e) => {

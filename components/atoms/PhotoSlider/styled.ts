@@ -4,12 +4,6 @@ export const PhotoSliderStyled = styled.div`
   position: relative;
   user-select: none;
 
-  .photo {
-    position: relative;
-    height: 250px;
-    user-select: none;
-  }
-
   .arrows {
     > div {
       border-radius: 50%;

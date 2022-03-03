@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,12 +6,10 @@ import SlideArrows from "~/components/atoms/SlideArrows";
 
 import { PhotoSliderStyled } from "./styled";
 
-import noImageIcon from "~icons/noImage.png";
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
+import Poster from "../Poster";
+import { Lazy } from "swiper";
 
 interface PhotoSliderTypes {
   items: any;
@@ -52,6 +48,8 @@ const PhotoSlider = ({
   return (
     <PhotoSliderStyled>
       <Swiper
+        modules={[Lazy]}
+        lazy={true}
         breakpoints={breakPoints}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
@@ -61,19 +59,11 @@ const PhotoSlider = ({
       >
         {items.map((item: any, i: number) => (
           <SwiperSlide key={i}>
-            <div className="photo">
-              <Image
-                src={
-                  item.file_path
-                    ? `${imgURL}/w500${item.file_path}`
-                    : noImageIcon
-                }
-                alt="poster"
-                objectFit="scale-down"
-                width={500}
-                height={300}
-              />
-            </div>
+            <Poster
+              className="photo scale-down"
+              alt="photo"
+              path={item.file_path}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

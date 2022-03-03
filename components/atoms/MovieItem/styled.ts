@@ -13,15 +13,6 @@ export const MovieItemStyled = styled.a`
     }
   }
 
-  .poster {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 480px;
-    max-height: 480px;
-    margin-bottom: 1.5rem;
-  }
-
   h3 {
     font-size: 1.4rem;
     transition: all 0.3s;

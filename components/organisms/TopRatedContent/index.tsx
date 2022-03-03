@@ -1,4 +1,6 @@
-import Image from "next/image";
+import { useState } from "react";
+
+import Link from "next/link";
 
 import Rap from "~/components/atoms/Rap";
 
@@ -6,10 +8,7 @@ import MovieAutoFade from "~/components/molecules/MovieAutoFade";
 
 import { TopRatedContentStyled } from "./styled";
 
-import Link from "next/link";
-import { useState } from "react";
-
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
+import Poster from "~/components/atoms/Poster";
 
 interface TopRatedContentTypes {
   items: any;
@@ -24,14 +23,11 @@ const TopRatedContent = ({ items }: TopRatedContentTypes) => {
     <TopRatedContentStyled>
       <div className="backPoster">
         {item.backdrop_path ? (
-          <div className="image">
-            <Image
-              src={`${imgURL}/original${item.backdrop_path}`}
-              alt="poster"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          <Poster
+            className="image cover"
+            path={item.backdrop_path}
+            type="original"
+          />
         ) : (
           ""
         )}
