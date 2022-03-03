@@ -1,36 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
 
 import Rap from "~/components/atoms/Rap";
+import Poster from "~/components/atoms/Poster";
 
 import MovieAutoFade from "~/components/molecules/MovieAutoFade";
 
 import { TopRatedContentStyled } from "./styled";
 
-import Poster from "~/components/atoms/Poster";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade } from "swiper";
+
+import "swiper/css/effect-fade";
 
 interface TopRatedContentTypes {
   items: any;
 }
 
 const TopRatedContent = ({ items }: TopRatedContentTypes) => {
+  const [handle, setHandle] = useState<any>(null);
   const [active, setActive] = useState(0);
 
   const item = items[active];
 
+  useEffect(() => {
+    if (handle) {
+      handle.slideTo(active);
+    }
+  }, [active, handle]);
+
   return (
     <TopRatedContentStyled>
       <div className="backPoster">
-        {item.backdrop_path ? (
-          <Poster
-            className="image cover"
-            path={item.backdrop_path}
-            type="original"
-          />
-        ) : (
-          ""
-        )}
+        <Swiper
+          className="imageBox"
+          effect="fade"
+          modules={[EffectFade]}
+          lazy={true}
+          onSwiper={(e) => {
+            setHandle(e);
+          }}
+        >
+          {items.map((v: any, i: number) => (
+            <SwiperSlide key={i}>
+              <Poster
+                className="backImage cover"
+                path={v.backdrop_path}
+                type="original"
+                key={i}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <Rap>

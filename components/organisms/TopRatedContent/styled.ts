@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const TopRatedContentStyled = styled.div`
   position: relative;
-  color: ${(props) => props.theme.textColor};
   padding: 5rem 0;
   height: 90vh;
 
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-end;
+  flex-wrap: wrap;
+
+  color: ${(props) => props.theme.textColor};
 
   @media only screen and (max-width: 900px) {
     height: 100%;
@@ -25,33 +26,41 @@ export const TopRatedContentStyled = styled.div`
     pointer-events: none;
     overflow: hidden;
 
-    .image {
+    ::before {
+      content: "";
+      width: 100%;
+      height: 20rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(transparent 30%, #010511);
+      z-index: 2;
+    }
+
+    ::after {
+      content: "";
+      width: 150%;
+      height: 70rem;
+      position: absolute;
+      left: -50%;
+      bottom: -50%;
+      transform: rotate(40deg);
+      background: linear-gradient(transparent 0%, #000);
+      z-index: 2;
+    }
+
+    .imageBox {
       position: relative;
       width: 100%;
       height: 100%;
+    }
 
-      ::before {
-        content: "";
-        width: 100%;
-        height: 20rem;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background: linear-gradient(transparent 30%, #010511);
-        z-index: 1;
-      }
-
-      ::after {
-        content: "";
-        width: 150%;
-        height: 70rem;
-        position: absolute;
-        left: -50%;
-        bottom: -50%;
-        transform: rotate(40deg);
-        background: linear-gradient(transparent 0%, #000);
-        z-index: 1;
-      }
+    .backImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 

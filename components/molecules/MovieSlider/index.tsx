@@ -1,14 +1,11 @@
 import { useState } from "react";
 
-import { Lazy } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import MovieItem from "~/components/atoms/MovieItem";
 import SlideArrows from "~/components/atoms/SlideArrows";
 
 import { MovieSliderStyled } from "./styled";
-
-import "swiper/css";
 
 interface MovieSliderTypes {
   items: any;
@@ -45,8 +42,6 @@ const MovieSlider = ({
   return (
     <MovieSliderStyled>
       <Swiper
-        lazy={true}
-        modules={[Lazy]}
         breakpoints={breakPoints}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}

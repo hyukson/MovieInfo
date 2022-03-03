@@ -6,10 +6,7 @@ import SlideArrows from "~/components/atoms/SlideArrows";
 
 import { PhotoSliderStyled } from "./styled";
 
-import "swiper/css";
-import "swiper/css/effect-coverflow";
 import Poster from "../Poster";
-import { Lazy } from "swiper";
 
 interface PhotoSliderTypes {
   items: any;
@@ -22,8 +19,6 @@ const PhotoSlider = ({
   slidesPerView = 3,
   spaceBetween = 30,
 }: PhotoSliderTypes) => {
-  console.log(items);
-
   const [handle, setHandle] = useState<any>(null);
 
   // 반응형
@@ -48,8 +43,6 @@ const PhotoSlider = ({
   return (
     <PhotoSliderStyled>
       <Swiper
-        modules={[Lazy]}
-        lazy={true}
         breakpoints={breakPoints}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}

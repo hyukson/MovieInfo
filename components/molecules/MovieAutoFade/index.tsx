@@ -8,9 +8,6 @@ import Poster from "~/components/atoms/Poster";
 
 import { MovieAutoFadeStyled } from "./styled";
 
-import "swiper/css";
-import { Lazy } from "swiper";
-
 interface MovieAutoFadeTypes {
   items: any;
   slidesPerView?: number;
@@ -68,13 +65,10 @@ const MovieAutoFade = ({
   return (
     <MovieAutoFadeStyled>
       <Swiper
-        lazy={true}
-        modules={[Lazy]}
         breakpoints={breakPoints}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         onSwiper={(e) => {
-          console.log(e);
           setHandle(e);
         }}
         onSlideChange={(e) => {

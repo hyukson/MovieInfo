@@ -15,6 +15,9 @@ import Footer from "~/components/organisms/Footer";
 import Header from "~/components/organisms/Header";
 import { WrapStyled } from "~/components/pageStyled/WrapStyled";
 
+import "swiper/css";
+import "swiper/css/lazy";
+
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
   const [loading, setLoading] = useState(false);
   const isExcludePage = ["/topRated"].includes(router.route);

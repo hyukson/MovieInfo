@@ -23,8 +23,8 @@ export const MovieAutoFadeStyled = styled.div`
   }
 
   .poster {
-    min-height: 270px;
-    max-height: 270px;
+    min-height: 270px !important;
+    max-height: 270px !important;
     margin-bottom: 1.5rem;
     border-radius: 10px;
     overflow: hidden;
