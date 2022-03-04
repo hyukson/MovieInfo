@@ -1,14 +1,12 @@
 import { useState } from "react";
 
-import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { isStringObject } from "util/types";
 
 import MovieItem from "~/components/atoms/MovieItem";
 import SlideArrows from "~/components/atoms/SlideArrows";
 
 import { MovieSliderStyled } from "./styled";
-
-import "swiper/css";
 
 interface MovieSliderTypes {
   items: any;

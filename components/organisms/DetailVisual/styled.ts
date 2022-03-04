@@ -51,9 +51,19 @@ export const DetailVisualStyled = styled.div`
 
     .poster {
       width: 350px;
-      height: 500px;
-      position: relative;
       margin-right: 12rem;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      .poster {
+        min-height: 350px;
+      }
+    }
+
+    @media only screen and (max-width: 800px) {
+      .poster {
+        display: none;
+      }
     }
 
     .direction {

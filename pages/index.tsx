@@ -67,9 +67,31 @@ export const getServerSideProps: GetServerSideProps = async () => {
     `${baseURL}/movie/upcoming?api_key=${apiKEY}&region=${region}&language=${language}`
   );
 
-  const visualItems = [...topRated, ...popular, ...nowPlaying, ...upcoming]
-    .sort((a: any, b: any) => Math.random() - Math.random())
-    .splice(0, 30);
+  const randomItems = [
+    ...topRated,
+    ...popular,
+    ...nowPlaying,
+    ...upcoming,
+  ].sort((a: any, b: any) => Math.random() - Math.random());
+
+  const visualItems: any[] = [];
+  const itemIds: number[] = [];
+
+  // 중복 영화 제거
+  while (true) {
+    if (visualItems.length === 30) {
+      break;
+    }
+
+    const item = randomItems.shift();
+
+    if (!itemIds.includes(item.id) && item.backdrop_path) {
+      visualItems.push(item);
+      itemIds.push(item.id);
+    }
+  }
+
+  visualItems.sort((a: any, b: any) => Math.random() - Math.random());
 
   return {
     props: {

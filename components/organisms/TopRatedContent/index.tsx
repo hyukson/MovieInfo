@@ -1,15 +1,13 @@
-import Image from "next/image";
+import { useEffect, useState } from "react";
+
+import Link from "next/link";
 
 import Rap from "~/components/atoms/Rap";
+import Poster from "~/components/atoms/Poster";
 
 import MovieAutoFade from "~/components/molecules/MovieAutoFade";
 
 import { TopRatedContentStyled } from "./styled";
-
-import Link from "next/link";
-import { useState } from "react";
-
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 interface TopRatedContentTypes {
   items: any;
@@ -23,18 +21,15 @@ const TopRatedContent = ({ items }: TopRatedContentTypes) => {
   return (
     <TopRatedContentStyled>
       <div className="backPoster">
-        {item.backdrop_path ? (
-          <div className="image">
-            <Image
-              src={`${imgURL}/original${item.backdrop_path}`}
-              alt="poster"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        ) : (
-          ""
-        )}
+        {[...items].slice(0, active + 4).map((v: any, i: number) => (
+          <Poster
+            className={"backImage cover " + (active === i ? "active" : "")}
+            alt="backDrop"
+            path={v.backdrop_path}
+            type="original"
+            key={i}
+          />
+        ))}
       </div>
 
       <Rap>

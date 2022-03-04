@@ -1,19 +1,12 @@
-import Image from "next/image";
-
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import SlideArrows from "~/components/atoms/SlideArrows";
 import Progress from "~/components/atoms/progress";
-
-import noImageIcon from "~/assets/icons/noImage.png";
+import Poster from "~/components/atoms/Poster";
 
 import { MovieAutoFadeStyled } from "./styled";
-
-import "swiper/css";
-
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
 
 interface MovieAutoFadeTypes {
   items: any;
@@ -76,7 +69,6 @@ const MovieAutoFade = ({
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         onSwiper={(e) => {
-          console.log(e);
           setHandle(e);
         }}
         onSlideChange={(e) => {
@@ -84,18 +76,13 @@ const MovieAutoFade = ({
         }}
       >
         {items.map((item: any, i: number) => (
-          <SwiperSlide key={i} className={active == i ? "active" : ""}>
-            <div className="poster" onClick={() => changeActive(i)}>
-              <Image
-                src={
-                  item.poster_path
-                    ? `${imgURL}/w500${item.poster_path}`
-                    : noImageIcon
-                }
-                alt="poster"
-                layout="fill"
-              />
-            </div>
+          <SwiperSlide key={i} className={active === i ? "active" : ""}>
+            <Poster
+              className="poster"
+              path={item.poster_path}
+              onclick={() => changeActive(i)}
+              key={i}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1,12 +1,8 @@
-import Image from "next/image";
-
 import Rap from "~/components/atoms/Rap";
 
 import { DetailVisualStyled } from "./styled";
 
-import noImage from "~icons/noImage.png";
-
-const imgURL = process.env.NEXT_PUBLIC_IMG_URL;
+import Poster from "~/components/atoms/Poster";
 
 interface DetailVisualTypes {
   item: any;
@@ -21,14 +17,11 @@ const DetailVisual = ({ item }: DetailVisualTypes) => {
     <DetailVisualStyled>
       <div className="backPoster">
         {item.backdrop_path ? (
-          <div className="image">
-            <Image
-              src={`${imgURL}/original${item.backdrop_path}`}
-              alt="poster"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          <Poster
+            className="image cover"
+            path={item.backdrop_path}
+            type="original"
+          />
         ) : (
           ""
         )}
@@ -36,15 +29,7 @@ const DetailVisual = ({ item }: DetailVisualTypes) => {
 
       <Rap>
         <div className="visualSection">
-          <div className="poster">
-            <Image
-              src={
-                item.poster_path ? `${imgURL}/w500${item.poster_path}` : noImage
-              }
-              alt="poster"
-              layout="fill"
-            />
-          </div>
+          <Poster className="poster" path={item.poster_path} />
 
           <div className="direction">
             <div>

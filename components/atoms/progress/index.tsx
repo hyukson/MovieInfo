@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { ProgressStyled } from "./styled";
 
 interface ProgressTypes {
