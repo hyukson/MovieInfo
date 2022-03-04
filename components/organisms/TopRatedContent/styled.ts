@@ -4,7 +4,7 @@ export const TopRatedContentStyled = styled.div`
   position: relative;
   padding: 5rem 0;
   height: 90vh;
-  min-height: 900px;
+  min-height: 870px;
 
   display: flex;
   align-items: flex-end;
