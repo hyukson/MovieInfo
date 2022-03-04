@@ -4,6 +4,7 @@ export const TopRatedContentStyled = styled.div`
   position: relative;
   padding: 5rem 0;
   height: 90vh;
+  min-height: 900px;
 
   display: flex;
   align-items: flex-end;
@@ -12,6 +13,7 @@ export const TopRatedContentStyled = styled.div`
   color: ${(props) => props.theme.textColor};
 
   @media only screen and (max-width: 900px) {
+    min-height: auto;
     height: 100%;
     margin-bottom: 1rem;
   }
@@ -49,6 +51,17 @@ export const TopRatedContentStyled = styled.div`
       z-index: 2;
     }
 
+    @media only screen and (max-width: 600px) {
+      ::after {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        transform: rotate(0);
+        background-color: rgba(0 0 0 / 20%);
+      }
+    }
+
     .imageBox {
       position: relative;
       width: 100%;
@@ -61,6 +74,14 @@ export const TopRatedContentStyled = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
+      user-select: none;
+
+      transition: 0.4s;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
     }
   }
 

@@ -21,6 +21,7 @@ const CreditsSlider = ({ items }: CreditsSliderTypes) => {
               alt="carousel"
               path={actor.profile_path}
               type="w300"
+              key={i}
             />
             <h4>{actor.name}</h4>
           </SwiperSlide>

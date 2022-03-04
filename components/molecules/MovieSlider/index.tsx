@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { isStringObject } from "util/types";
 
 import MovieItem from "~/components/atoms/MovieItem";
 import SlideArrows from "~/components/atoms/SlideArrows";

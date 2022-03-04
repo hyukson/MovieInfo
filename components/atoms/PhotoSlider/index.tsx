@@ -56,6 +56,7 @@ const PhotoSlider = ({
               className="photo scale-down"
               alt="photo"
               path={item.file_path}
+              key={i}
             />
           </SwiperSlide>
         ))}

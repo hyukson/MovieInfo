@@ -9,50 +9,27 @@ import MovieAutoFade from "~/components/molecules/MovieAutoFade";
 
 import { TopRatedContentStyled } from "./styled";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade } from "swiper";
-
-import "swiper/css/effect-fade";
-
 interface TopRatedContentTypes {
   items: any;
 }
 
 const TopRatedContent = ({ items }: TopRatedContentTypes) => {
-  const [handle, setHandle] = useState<any>(null);
   const [active, setActive] = useState(0);
 
   const item = items[active];
 
-  useEffect(() => {
-    if (handle) {
-      handle.slideTo(active);
-    }
-  }, [active, handle]);
-
   return (
     <TopRatedContentStyled>
       <div className="backPoster">
-        <Swiper
-          className="imageBox"
-          effect="fade"
-          modules={[EffectFade]}
-          lazy={true}
-          onSwiper={(e) => {
-            setHandle(e);
-          }}
-        >
-          {items.map((v: any, i: number) => (
-            <SwiperSlide key={i}>
-              <Poster
-                className="backImage cover"
-                path={v.backdrop_path}
-                type="original"
-                key={i}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {[...items].slice(0, active + 4).map((v: any, i: number) => (
+          <Poster
+            className={"backImage cover " + (active === i ? "active" : "")}
+            alt="backDrop"
+            path={v.backdrop_path}
+            type="original"
+            key={i}
+          />
+        ))}
       </div>
 
       <Rap>

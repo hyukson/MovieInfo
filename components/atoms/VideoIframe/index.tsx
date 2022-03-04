@@ -13,7 +13,6 @@ const VideoIframe = ({ videoURL }: VideoIframeTypes) => {
         src={`https://www.youtube.com/embed/${videoURL}`}
         frameBorder="0"
         allowFullScreen
-        onError={(e) => console.log(e)}
       />
     </VideoIframeStyled>
   );

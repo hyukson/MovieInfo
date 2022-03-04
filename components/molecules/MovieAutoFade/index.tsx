@@ -76,11 +76,12 @@ const MovieAutoFade = ({
         }}
       >
         {items.map((item: any, i: number) => (
-          <SwiperSlide key={i} className={active == i ? "active" : ""}>
+          <SwiperSlide key={i} className={active === i ? "active" : ""}>
             <Poster
               className="poster"
               path={item.poster_path}
               onclick={() => changeActive(i)}
+              key={i}
             />
           </SwiperSlide>
         ))}

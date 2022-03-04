@@ -1,3 +1,5 @@
+import React from "react";
+
 import { PosterStyled } from "./styled";
 
 import Image from "next/image";
@@ -22,14 +24,14 @@ const Poster = ({ className, path, type, alt, onclick }: PosterTypes) => {
   return (
     <PosterStyled className={className} onClick={onclick}>
       <Image
-        className="swiper-lazy"
+        className="lazy-image"
         src={path ? `${imgURL}/${type}${path}` : noImage}
         alt={alt}
         layout="fill"
-        onLoad={() => ref.current.remove()}
+        onLoadingComplete={() => ref.current.remove()}
       />
 
-      <div className="swiper-lazy-preloader" ref={ref} />
+      <div className="lazy-animation" ref={ref} />
     </PosterStyled>
   );
 };

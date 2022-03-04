@@ -17,7 +17,7 @@ const SearchForm = ({ onChange, value }: SearchFormTypes) => {
         id="search"
         onInput={onChange}
         autoFocus
-        placeholder="영화 제목을 입력해주세요."
+        placeholder="영화 제목을 입력해주 ."
       />
     </SearchFormStyled>
   );

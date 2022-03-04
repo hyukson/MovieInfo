@@ -129,6 +129,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `${baseURL}/movie/${id}/similar?api_key=${apiKEY}&language=${language}`
   );
 
+  // 관련 이미지
   const photos = (
     await getAxios(`${baseURL}/movie/${id}/images?api_key=${apiKEY}`)
   ).backdrops;
