@@ -56,7 +56,7 @@ class MyDocument extends Document {
           <meta property="og:image" content="/logo.png" />
           <meta property="og:image:alt" content="MovieInfo Logo" />
 
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href="/favicon.ico" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
