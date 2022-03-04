@@ -2,6 +2,8 @@
 
 The Movie Database API 사이트를 이용하여 다양한 영화 정보를 공유하는 사이트입니다.
 
+https://main.d5d7mrdnguzvo.amplifyapp.com/
+
 ## Preview
 ### Main
 ![화면 캡처 2022-03-04 144232](https://user-images.githubusercontent.com/93583305/156706494-69277acb-e7e7-49e4-a3b9-510ba4f98e68.png)
